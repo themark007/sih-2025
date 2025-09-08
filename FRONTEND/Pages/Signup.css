@@ -1,0 +1,169 @@
+:root{
+  --green-900:#0b5d1e;
+  --green-700:#137a2a;
+  --green-500:#2fbf71;
+  --green-200:#d9f7e7;
+  --green-50:#f3fff8;
+  --white:#ffffff;
+  --text:#12311e;
+  --shadow: 0 10px 24px rgba(13, 86, 36, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--green-50);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Page layout */
+.signup-page{
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 220px 1fr;
+  position: relative;
+}
+
+/* Back arrow */
+.back-arrow{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  background: var(--white);
+  color: var(--green-900);
+  border: 1px solid #dfe7e2;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  z-index: 20;
+}
+.back-arrow:hover{ transform: translateX(-2px) scale(1.03); }
+.back-arrow:active{ transform: translateX(-1px) scale(.98); }
+
+/* Hero banner with farm image + gradient */
+.hero-banner{
+  background:
+    linear-gradient(to bottom, rgba(5,60,22,.45), rgba(5,60,22,.15)),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop");
+  background-position: center;
+  background-size: cover;
+  filter: saturate(1.05) contrast(1.02);
+  animation: reveal .8s ease forwards;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Card */
+.signup-container{
+  width: min(92vw, 480px);
+  margin: -64px auto 48px;
+  background: var(--white);
+  border-radius: 18px;
+  padding: 22px 20px 24px;
+  box-shadow: var(--shadow);
+  animation: float-in .5s ease .15s both;
+}
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.signup-title{
+  margin: 2px 0 6px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: var(--green-900);
+  text-align: center;
+}
+.subtitle{
+  margin: 0 0 14px;
+  text-align: center;
+  color: #2a4f38;
+  font-size: 0.95rem;
+}
+
+/* Forms */
+.form-section{ display: grid; gap: 10px; }
+.label{
+  font-size: .9rem;
+  color: #2a4f38;
+}
+.input-field{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid #cfe9db;
+  background: #fbfffd;
+  font-size: 1rem;
+  transition: box-shadow .18s ease, border-color .18s ease, transform .08s ease;
+}
+.input-field:focus{
+  outline: none;
+  border-color: var(--green-500);
+  box-shadow: 0 0 0 4px var(--green-200);
+}
+.input-field:active{ transform: scale(.997); }
+
+/* Buttons */
+.btn{
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease, color .2s ease;
+}
+.btn.primary{
+  background: linear-gradient(180deg, var(--green-500), var(--green-700));
+  color: white;
+  box-shadow: 0 6px 16px rgba(47,191,113,.35);
+}
+.btn.primary:hover{ transform: translateY(-1px); }
+.btn.primary:active{ transform: translateY(0); }
+
+.btn.ghost{
+  background: #f7fff9;
+  color: var(--green-900);
+  border: 2px solid #cfe9db;
+}
+.btn.ghost:hover{ background: #eefaf2; }
+
+.actions{
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+/* Info & footnote */
+.info-text{
+  margin: 2px 0 4px;
+  color: #2a4f38;
+}
+.footnote{
+  margin: 16px 2px 0;
+  font-size: .85rem;
+  color: #4b6a58;
+  text-align: center;
+}
+
+/* Animations */
+.fade-in{
+  animation: fade .28s ease both;
+}
+.fade-in-up{
+  animation: fadeUp .32s ease both;
+}
+@keyframes fade { from{opacity:0} to{opacity:1} }
+@keyframes fadeUp { from{opacity:0; transform: translateY(4px)} to{opacity:1; transform: translateY(0)} }
