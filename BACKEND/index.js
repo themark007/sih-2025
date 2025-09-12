@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import detailsRoutes from './routes/detailsRoutes.js';
+import chatRoutes from "./routes/chatRoutes.js";
 
 
 
@@ -29,6 +30,8 @@ app.get('/', (req, res) => {
 
 app.use('/api', authRoutes);
 app.use('/api/details', detailsRoutes);
+
+app.use("/api/chat", chatRoutes);
 
 
 

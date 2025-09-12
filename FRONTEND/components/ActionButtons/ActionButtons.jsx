@@ -19,7 +19,7 @@ const ActionButtons = () => {
       title: "Find Disease",
       icon: "https://cdn-icons-png.flaticon.com/512/2784/2784696.png",
       description: "Identify crop diseases and get solutions",
-      navi: "/find-disease",
+      navi: "/getvdisease",
     },
     {
       id: 3,
