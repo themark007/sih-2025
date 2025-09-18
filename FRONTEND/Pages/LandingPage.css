@@ -512,3 +512,35 @@
     margin-bottom: 2rem;
   }
 }
+
+.language-select {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* On hover */
+.language-select:hover {
+  border-color: #4caf50;
+  background-color: #f1fff1;
+}
+
+/* On focus */
+.language-select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Dropdown options */
+.language-select option {
+  background: #fff;
+  color: #333;
+  padding: 8px;
+}
