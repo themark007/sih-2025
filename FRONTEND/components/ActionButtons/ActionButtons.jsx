@@ -27,12 +27,12 @@ const ActionButtons = () => {
       navi: "/history",
     },
     {
-      id: 2,
-      title: { en: "Find Disease", ml: "രോഗം കണ്ടെത്തുക" },
-      icon: "https://cdn-icons-png.flaticon.com/512/2784/2784696.png",
-      description: { en: "Identify crop diseases and get solutions", ml: "വിളയിലെ രോഗങ്ങൾ തിരിച്ചറിയുകയും പരിഹാരങ്ങൾ ലഭിക്കുകയും ചെയ്യുക" },
-      navi: "/find-disease",
-    },
+  id: 2,
+  title: { en: "Find Disease", ml: "രോഗം കണ്ടെത്തുക" },
+  icon: "https://cdn-icons-png.flaticon.com/512/2784/2784696.png",
+  description: { en: "Identify crop diseases and get solutions", ml: "വിളയിലെ രോഗങ്ങൾ തിരിച്ചറിയുകയും പരിഹാരങ്ങൾ ലഭിക്കുകയും ചെയ്യുക" },
+  navi: "/find-disease",
+},
     {
       id: 3,
       title: { en: "Chat about Crop Health", ml: "വിളാരോഗ്യത്തെക്കുറിച്ച് ചാറ്റ് ചെയ്യുക" },

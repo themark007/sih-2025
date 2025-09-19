@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import FarmerInfo from "../components/FarmerInfo/FarmerInfo";
 import ActionButtons from "../components/ActionButtons/ActionButtons";
 import useProfileStore from "../src/store/profileStore";
+
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -13,6 +14,8 @@ const Dashboard = () => {
   const loading = useProfileStore((s) => s.loading);
   const error = useProfileStore((s) => s.error);
   const loadProfileFromPhone = useProfileStore((s) => s.loadProfileFromPhone);
+
+   
 
   useEffect(() => {
     const phone = localStorage.getItem("phone");

@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
 const pool = new Pool({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "postgres",
@@ -94,3 +93,8 @@ CREATE TABLE advisories (
   source VARCHAR(200),
   created_at TIMESTAMPTZ DEFAULT now()
 );*/
+
+
+
+
+

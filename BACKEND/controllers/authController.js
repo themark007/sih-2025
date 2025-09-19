@@ -51,6 +51,15 @@ async function sendWhatsAppViaTwilio(toPhone, text) {
   return msg.sid;
 }
 
+async function sendSmsViaTwilio(toPhone, text) {
+  if (!twilioClient) throw new Error('Twilio not configured');
+  const from = process.env.TWILIO_SMS_FROM;  // must be a valid Twilio SMS number
+  const to = toPhone.startsWith('+') ? toPhone : `+${toPhone}`; // ensure E.164 format
+  const msg = await twilioClient.messages.create({ from, to, body: text });
+  return msg.sid;
+}
+
+
 /**
  * POST /signup/send-otp
  * Body: { phone }
@@ -102,7 +111,7 @@ export const sendOtp = async (req, res) => {
     const text = `Your verification code is ${code}. It expires in ${minutes} minute(s).`;
 
     try {
-      const sid = await sendWhatsAppViaTwilio(phone, text);
+     const sid = await sendSmsViaTwilio(phone, text);
       return res.status(200).json({ success: false, message: 'otp_sent', twilio_sid: sid || null });
     } catch (err) {
       // cleanup on failure
@@ -225,7 +234,7 @@ export const loginSendOtp = async (req, res) => {
     const text = `code le is ${code}. It expires in ${minutes} minute(s).`;
 
     try {
-      const sid = await sendWhatsAppViaTwilio(phone, text);
+      const sid = await sendSmsViaTwilio(phone, text);
       return res.status(200).json({ success: false, message: 'otp_sent', twilio_sid: sid || null });
     } catch (err) {
       otpStore.delete(phone);

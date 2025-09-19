@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# But keep app.py
+!app.py
+
+# Optional: Keep the .gitignore itself
+!.gitignore
