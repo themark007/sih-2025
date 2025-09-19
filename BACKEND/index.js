@@ -19,7 +19,22 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+// allow both the host browser and the container name
+const allowedOrigins = [
+  "http://localhost:5173",    // browser dev server on host
+  "http://frontend-sih:5173"  // Vite when accessed via container network (optional)
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // allow non-browser requests (curl, same-origin requests with no origin)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error("CORS: origin not allowed"));
+  },
+  credentials: true, // if you use cookies/auth
+}));
+
 
 
 

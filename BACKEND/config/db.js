@@ -3,13 +3,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
 const pool = new Pool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "postgres",
-  database: process.env.DB_NAME || "farmer",
-  password: process.env.DB_PASSWORD || "xmkms@123",
-  port: process.env.DB_PORT || 5432,
+  host: process.env.DB_HOST || "postgres",   // <--- service name, not localhost
+  user: process.env.DB_USER || "mark",       // same as POSTGRES_USER in docker-compose
+  database: process.env.DB_NAME || "sih",   // same as POSTGRES_DB in docker-compose
+  password: process.env.DB_PASSWORD || "secret123", // same as POSTGRES_PASSWORD
+  port: process.env.DB_PORT || 5433,
 });
 
 export default pool;
@@ -94,3 +93,8 @@ CREATE TABLE advisories (
   source VARCHAR(200),
   created_at TIMESTAMPTZ DEFAULT now()
 );*/
+
+
+
+
+

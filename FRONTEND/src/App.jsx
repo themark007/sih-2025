@@ -24,7 +24,7 @@ function App() {
         {/* Use GetVDisease as its own route */}
         <Route
           path="/getvdisease"
-          element={<GetVDisease apiUrl="http://localhost:4000/predict" topK={5} />}
+          element={<GetVDisease apiUrl="http://localhost:4000:4000/predict" topK={5} />}
         />
 
        <Route path="chat" element={<CropChatFrontend />} />

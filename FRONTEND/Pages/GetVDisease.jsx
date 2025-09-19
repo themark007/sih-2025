@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./GetVDisease.css";
 
-const DEFAULT_API = "http://localhost:4000";
+const DEFAULT_API = "http://localhost:4000/";
 
 export default function GetVDisease({ apiUrl = `${DEFAULT_API}/predict`, labelsUrl = `${DEFAULT_API}/labels`, topK = 5 }) {
   const [file, setFile] = useState(null);
