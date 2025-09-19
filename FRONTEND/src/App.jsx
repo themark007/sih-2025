@@ -11,6 +11,7 @@ import ProtectedRoute from "./ProtectedRoutes";
 import Dashboard from "../Pages/Dashboard";
 import GetVDisease from "../Pages/GetVDisease";
 import CropChatFrontend from "../Pages/CropChatFrontend";
+import WeatherPage from "../Pages/WeatherPage";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
 
         {/* Use GetVDisease as its own route */}
         <Route
-          path="/getvdisease"
-          element={<GetVDisease apiUrl="http://localhost:4000:4000/predict" topK={5} />}
+          path="/find-disease"
+          element={<GetVDisease apiUrl="http://localhost:4000/predict" topK={5} />}
         />
 
        <Route path="chat" element={<CropChatFrontend />} />
@@ -36,6 +37,11 @@ function App() {
             </ProtectedRoute>
           }
         />
+               
+               
+         <Route path="/weather" element={<WeatherPage apiKey="" />} />
+
+
 
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
