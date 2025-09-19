@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState} from "react";
 import Header from "../components/Header/Header";
 import FarmerInfo from "../components/FarmerInfo/FarmerInfo";
 import ActionButtons from "../components/ActionButtons/ActionButtons";
@@ -7,6 +7,9 @@ import useProfileStore from "../src/store/profileStore";
 import "./Dashboard.css";
 
 const Dashboard = () => {
+  const [language, setLanguage] = useState(
+      localStorage.getItem("language") || "en"
+  );
   const profile = useProfileStore((s) => s.profile);
   const loading = useProfileStore((s) => s.loading);
   const error = useProfileStore((s) => s.error);
@@ -22,16 +25,22 @@ const Dashboard = () => {
   }, [profile, loadProfileFromPhone]);
 
   return (
-    <div className="dashboard">
+ <div className="dashboard">
       <Header />
       <div className="dashboard-content">
         {loading ? (
           <div className="loader-container">
             <div className="loader" />
-            <div>Loading profile...</div>
+            <div>
+              {language === "en"
+                ? "Loading profile..."
+                : "പ്രൊഫൈൽ ലോഡ് ചെയ്യുന്നു..."}
+            </div>
           </div>
         ) : error ? (
-          <div className="profile-error">Error: {error}</div>
+          <div className="profile-error">
+            {language === "en" ? `Error: ${error}` : `പിശക്: ${error}`}
+          </div>
         ) : profile ? (
           <>
             <FarmerInfo farmer={profile} />
@@ -39,7 +48,11 @@ const Dashboard = () => {
           </>
         ) : (
           <div className="no-profile">
-            <p>No profile found. Please create one.</p>
+            <p>
+              {language === "en"
+                ? "No profile found. Please create one."
+                : "പ്രൊഫൈൽ കണ്ടെത്താനായില്ല. ദയവായി ഒരു പ്രൊഫൈൽ സൃഷ്ടിക്കുക."}
+            </p>
             <ActionButtons />
           </div>
         )}
